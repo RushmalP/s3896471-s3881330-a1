@@ -10,11 +10,11 @@ function initUsers() {
   // User data is hard-coded, passwords are in plain-text.
   const users = [
     {
-      username: "test1",
+      username: "adam",
       password: "abc123"
     },
     {
-      username: "test2",
+      username: "eve",
       password: "123abc"
     }
   ];
