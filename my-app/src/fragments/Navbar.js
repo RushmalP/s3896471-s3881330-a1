@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure you have imported Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function Navbar(props) {
   return (
