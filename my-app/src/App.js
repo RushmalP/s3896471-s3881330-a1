@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import { getUser, removeUser } from "./data/userPass";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [username, setUsername] = useState(getUser());
