@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-success"> {/* Changed to bg-success for green background */}
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">SOIL</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@ function Navbar(props) {
               <span className="navbar-text me-3">
                 Welcome, {props.username}
               </span>
-              <button className="btn btn-outline-success" onClick={props.logoutUser}>Logout</button>
+              <button className="btn btn-outline-light" onClick={props.logoutUser}>Logout</button> {/* Use btn-outline-light for better contrast */}
             </div>
           )}
         </div>
