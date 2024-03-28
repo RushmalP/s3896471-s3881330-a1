@@ -1,0 +1,59 @@
+.Home {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .hero {
+    background-image: url('/Users/rushmalperera/Downloads/home.jpg'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the background image */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    height: 50vh; /* Optional: Adjust the height as needed */
+    text-align: center; /* Center the text */
+  }
+  
+  .products, .seminars, .reviews {
+    padding: 30px 20px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    color: #ffffff;
+    font-family: 'Montserrat'; 
+  }
+
+  h2 {
+    color: #000000;
+    font-family: 'Montserrat'; 
+  }
+
+  
+  p {
+    color: #000000;
+    font-family: 'Montserrat'; 
+  }
+
+  p1 {
+    color: #ffffff;
+    font-family: 'Montserrat'; 
+  }
+  
+  button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #4cae4c;
+  }
+  

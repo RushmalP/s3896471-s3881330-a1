@@ -1,0 +1,34 @@
+.navbar {
+    background-color: #f4f4f4; /* This should be the color of your choice, or you can use a background image if that's what the design requires */
+    border-bottom: solid 1px #ccc; /* This adds a subtle line to the bottom of the navbar for definition */
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-logo {
+    font-family: 'Times New Roman', serif; /* Adjust the font-family to match your brand */
+    font-size: 2rem; /* This is an example size, adjust as needed */
+    color: #333; /* This color is a dark grey, suggesting something professional and subdued */
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem; /* This value determines the space between menu items */
+  }
+  
+  .navbar-menu li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333; /* Ensures that the menu items are the same color as the logo */
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-menu li a:hover {
+    color: #666; /* Change the color on hover for a nice interactive effect */
+  }
+  
+  /* If you have a search bar or buttons, style them here as well */
+  
