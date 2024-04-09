@@ -29,7 +29,10 @@ function Login(props) {
 
     // If verified login the user.
     if(verified === true) {
-      props.loginUser(fields.username);
+      // Check if loginUser is a function before calling it
+      if (typeof props.loginUser === "function") {
+        props.loginUser(fields.username);
+      }
 
       // Navigate to the home page.
       navigate("/");

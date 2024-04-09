@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Specials from './pages/Specials';
 import Profile from './pages/Profile';
+import SignIn from './pages/SignIn';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/specials" element={<Specials />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/SignIn" element={<SignIn />} />
             {/* Additional routes as needed */}
           </Routes>
         </main>
