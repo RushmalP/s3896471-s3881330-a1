@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="home">
       <section className="hero">
-        <h1><center>SOIL: Your Organic Food Partner</center></h1>
+        <h1><center>SOIL:: Your Organic Food Partner</center></h1>
         <p1><center>Welcome to SOIL, the home of Organic Food.</center></p1>
       </section>
       <section className="products">
