@@ -5,9 +5,12 @@ import './Home.css';
 function Home() {
   return (
     <div className="home">
-      <section className="hero">
-        <h1><center>SOIL:: Your Organic Food Partner</center></h1>
-        <p1><center>Welcome to SOIL, the home of Organic Food.</center></p1>
+      <section className="image">
+        <div className="image-background"></div> {/* Background overlay */}
+        <div className="image-content"> {/* Content overlay */}
+          <h1>SOIL: Your Organic Food Partner</h1>
+          <p1>Welcome to SOIL, the home of Organic Food and Products</p1>
+        </div>
       </section>
       <section className="products">
         <h2>Our Products</h2>

@@ -2,17 +2,38 @@
     text-align: center;
     padding: 20px;
   }
+
+  body {
+    background-color: #e5dfd2;
+  }
   
-  .hero {
-    background-image: url('/Users/rushmalperera/Downloads/homepage.jpg'); /* Replace with your image path */
-    background-size: cover; /* Cover the entire section */
-    background-position: center; /* Center the background image */
+  .image {
+    position: relative;
+    height: 100vh;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center children vertically */
-    align-items: center; /* Center children horizontally */
-    height: 100vh; /* Optional: Adjust the height as needed */
-    text-align: center; /* Center the text */
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* This replaces the <center> tags in your JSX */
+  }
+  
+  .image-background {
+    background-image: url('/Users/rushmalperera/Downloads/homepage.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: brightness(70%);
+    z-index: -1;
+    min-height: 100vh; /* Ensures the image covers the full height of the viewport */
+  }
+  
+  .image-content {
+    z-index: 1; /* Ensures the content is above the background */
+    color: #1b0505; /* Set your text color here */
+    /* More content styles here */
   }
   
   .products, .seminars, .reviews {
@@ -25,7 +46,7 @@
   
   h1 {
     color: #ffffff;
-    font-family: 'Montserrat'; 
+    font-family: "Times New Roman", Times, serif;
   }
 
   h2 {
@@ -41,7 +62,8 @@
 
   p1 {
     color: #ffffff;
-    font-family: 'Montserrat'; 
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
   }
   
   button {

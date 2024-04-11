@@ -5,7 +5,7 @@ import './Navbar.css';
 
 function Navbar({ username, logoutUser }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-custom">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <div className="logo">
