@@ -45,11 +45,16 @@ body {
 
 .info-box {
   background-color: #fff;
-  border: 2px solid #fff;
+  border: 2px solid #ddd; /* changed from white to light grey to be visible */
   border-radius: 15px;
   padding: 20px;
   width: 300px;
+  height: 250px; /* Adjusted to the height that fits the box with the most content */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* Enables scrolling for the box with more content */
+  margin: 0 10px; /* Optional: adds some space between the boxes */
 }
 
 h1 {
@@ -71,4 +76,18 @@ p {
   color: #ffffff;
   font-family: "Times New Roman", Times, serif;
   font-size: 25px;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #5cb85c;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.arrow-btn:hover {
+  color: #4cae4c;
 }
