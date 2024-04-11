@@ -4,14 +4,14 @@
   }
   
   .hero {
-    background-image: url('/Users/rushmalperera/Downloads/home.jpg'); /* Replace with your image path */
+    background-image: url('/Users/rushmalperera/Downloads/homepage.jpg'); /* Replace with your image path */
     background-size: cover; /* Cover the entire section */
     background-position: center; /* Center the background image */
     display: flex;
     flex-direction: column; /* Stack children vertically */
     justify-content: center; /* Center children vertically */
     align-items: center; /* Center children horizontally */
-    height: 50vh; /* Optional: Adjust the height as needed */
+    height: 100vh; /* Optional: Adjust the height as needed */
     text-align: center; /* Center the text */
   }
   
