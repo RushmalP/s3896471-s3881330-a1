@@ -25,7 +25,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  filter: brightness(70%);
+  filter: brightness(68%);
   z-index: -1;
   min-height: 100vh;
 }
@@ -83,11 +83,11 @@ p {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #5cb85c;
+  color: #2b180c;
   padding: 0;
   margin-left: 10px;
 }
 
 .arrow-btn:hover {
-  color: #4cae4c;
+  color: #2b180c;
 }

@@ -19,8 +19,8 @@ function Home() {
       content: 'Organic farming prioritises healthy soils, healthy plants, and healthy habitats. To enhance soil quality and increase the amount of organic soil matter in the soil, organic farmers employ crop rotation as well as biological fertiliser inputs. Farmers lessen the effects of drought and flooding by improving the soils capacity to absorb water by adding more organic matter to the soil. Enhancing soil matter also aids in the soils ability to retain nutrients necessary for the growth of crops that are more resistant to pests and illnesses.'
     },
     {
-      title: 'Healthy Recipes',
-      content: 'Find inspiration for healthy, organic meals with our collection of recipes and cooking tips.'
+      title: 'Overall Health',
+      content: 'Growing research, such as a report from the Presidents Cancer Panel, indicates that eating organic food can significantly lower exposure to harmful pesticides. Additionally, an increasing amount of studies demonstrates that eating organic food is a great way to get nutrients like iron, magnesium, and vitamin C, all of which are essential for overall health.'
     }
   ];
 
