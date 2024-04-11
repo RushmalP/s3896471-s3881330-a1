@@ -1,31 +1,29 @@
 import React from 'react';
 import './Home.css';
 
-
 function Home() {
   return (
     <div className="home">
       <section className="image">
-        <div className="image-background"></div> {/* Background overlay */}
-        <div className="image-content"> {/* Content overlay */}
+        <div className="image-background"></div>
+        <div className="image-content">
           <h1>SOIL: Your Organic Food Partner</h1>
-          <p1>Welcome to SOIL, the home of Organic Food and Products</p1>
+          <p className="intro-text">Welcome to SOIL, the home of Organic Food and Products</p>
         </div>
       </section>
-      <section className="products">
-        <h2>Our Products</h2>
-        <p>Explore our carefully curated selection of organic fruits, vegetables, grains, and more.</p>
-        <button>Shop Now</button>
-      </section>
-      <section className="seminars">
-        <h2>Seminars and Workshops</h2>
-        <p>Dive deeper into the world of organic living with our expert-led seminars on diet, nutrition, and small-scale organic farming.</p>
-        <button>Learn More</button>
-      </section>
-      <section className="reviews">
-        <h2>Customer Reviews</h2>
-        <p>Hear what our satisfied customers have to say about their SOIL experience.</p>
-        <button>Read Reviews</button>
+      <section className="info-boxes">
+        <div className="info-box">
+          <h2>Organic Foods</h2>
+          <p>Discover the benefits of organic foods and how they contribute to a healthier lifestyle and a sustainable environment.</p>
+        </div>
+        <div className="info-box">
+          <h2>Nutritional Advice</h2>
+          <p>Learn about balanced diets, the importance of nutrients, and how to make informed choices for your health and well-being.</p>
+        </div>
+        <div className="info-box">
+          <h2>Online Store</h2>
+          <p>Explore our online store for a wide range of organic products, including fruits, vegetables, grains, and more, all available for convenient home delivery.</p>
+        </div>
       </section>
     </div>
   );

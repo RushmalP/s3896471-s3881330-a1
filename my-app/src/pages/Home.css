@@ -1,81 +1,74 @@
-.Home {
-    text-align: center;
-    padding: 20px;
-  }
+.home {
+  text-align: center;
+  padding: 20px;
+}
 
-  body {
-    background-color: #e5dfd2;
-  }
-  
-  .image {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; /* This replaces the <center> tags in your JSX */
-  }
-  
-  .image-background {
-    background-image: url('/Users/rushmalperera/Downloads/homepage.jpg');
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    filter: brightness(70%);
-    z-index: -1;
-    min-height: 100vh; /* Ensures the image covers the full height of the viewport */
-  }
-  
-  .image-content {
-    z-index: 1; /* Ensures the content is above the background */
-    color: #1b0505; /* Set your text color here */
-    /* More content styles here */
-  }
-  
-  .products, .seminars, .reviews {
-    padding: 30px 20px;
-  }
-  
-  section {
-    margin-bottom: 20px;
-  }
-  
-  h1 {
-    color: #ffffff;
-    font-family: "Times New Roman", Times, serif;
-  }
+body {
+  background-color: #e5dfd2;
+}
 
-  h2 {
-    color: #000000;
-    font-family: 'Montserrat'; 
-  }
+.image {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-  
-  p {
-    color: #000000;
-    font-family: 'Montserrat'; 
-  }
+.image-background {
+  background-image: url('/Users/rushmalperera/Downloads/homepage.jpg');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: brightness(70%);
+  z-index: -1;
+  min-height: 100vh;
+}
 
-  p1 {
-    color: #ffffff;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 25px;
-  }
-  
-  button {
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  button:hover {
-    background-color: #4cae4c;
-  }
-  
+.image-content {
+  z-index: 1;
+  color: #1b0505;
+}
+
+.info-boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px 20px;
+}
+
+.info-box {
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #ffffff;
+  font-family: "Times New Roman", Times, serif;
+}
+
+h2 {
+  color: #000000;
+  font-family: 'Montserrat';
+}
+
+p {
+  color: #000000;
+  font-family: 'Montserrat';
+}
+
+.intro-text {
+  color: #ffffff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+}

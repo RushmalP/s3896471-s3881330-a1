@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css';
 
 function Navbar({ username, logoutUser }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logoutUser();
+    navigate("/");
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-custom">
       <div className="container-fluid">
@@ -45,7 +52,7 @@ function Navbar({ username, logoutUser }) {
                 </span>
               </li>
               <li className="nav-item">
-                <button className="btn btn-outline-light" onClick={logoutUser}>Logout</button>
+                <button className="btn btn-outline-light" onClick={handleLogout}>Logout</button>
               </li>
             </ul>
           ) : (
