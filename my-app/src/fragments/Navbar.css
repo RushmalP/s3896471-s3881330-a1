@@ -5,8 +5,17 @@
   align-items: center;
   padding: 0 20px;
   height: 50px; /* Set the height of the navbar */
+  position: fixed; /* Make the navbar fixed at the top */
+  width: 100%; /* Ensure the navbar stretches across the full width */
+  top: 0; /* Position the navbar at the top */
+  z-index: 999; /* Ensure the navbar is above other content */
+  border-bottom: 2px solid #ffffff; /* Add a white border at the bottom */
 }
 
+/* Add padding to the body to prevent content from being hidden behind the navbar */
+body {
+  padding-top: 50px; /* Adjust this value based on the height of your navbar */
+}
 .logo {
   margin-right: auto; /* Pushes everything else to the right */
   margin-left: -20px; /* Creates a gap on the left side */
@@ -44,14 +53,11 @@
   font-size: 18px;
 }
 
-/* Change the color for the hover state as well */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
   color: #725d4c; /* Slightly off-white for hover/focus states */
 }
 
-/* If you have any other text you want to make bright white, add a rule for it */
 .navbar-text {
   color: #725d4c; /* Bright white color */
-
 }
