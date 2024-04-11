@@ -8,6 +8,9 @@ import Login from './pages/Login';
 import Specials from './pages/Specials';
 import Profile from './pages/Profile';
 import SignIn from './pages/SignIn';
+import DietPlan from './pages/DietPlan';
+import Cart from './pages/Cart';
+
 
 function App() {
   return (
@@ -21,6 +24,8 @@ function App() {
             <Route path="/specials" element={<Specials />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/dietplan" element={<DietPlan />} />
+            <Route path="/cart" element={<Cart />} />
             {/* Additional routes as needed */}
           </Routes>
         </main>

@@ -23,6 +23,19 @@ function Navbar({ username, logoutUser }) {
             <li className="nav-item">
               <Link className="nav-link" to="/specials">Specials</Link>
             </li>
+            {username && (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/dietplan">Diet Plan</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/cart">Cart</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/profile">Profile</Link>
+                </li>
+              </>
+            )}
           </ul>
           {username ? (
             <ul className="navbar-nav">
