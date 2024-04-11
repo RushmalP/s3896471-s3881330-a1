@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./fragments/Navbar";
 import Footer from "./fragments/Footer";
@@ -14,6 +14,16 @@ import { getUser, removeUser } from "./data/userPass";
 
 function App() {
   const [username, setUsername] = useState(getUser());
+
+  useEffect(() => {
+    const specials = [
+      { name: 'Organic Apples', description: 'Fresh and juicy organic apples.', price: 3.99 },
+      { name: 'Whole Grain Bread', description: 'Healthy whole grain bread.', price: 2.49 },
+      // Add more specials here
+    ];
+    localStorage.setItem('specials', JSON.stringify(specials));
+  }, []);
+
 
   const loginUser = (username) => {
     setUsername(username);
