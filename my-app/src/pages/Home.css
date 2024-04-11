@@ -17,7 +17,7 @@ body {
 }
 
 .image-background {
-  background-image: url('/Users/rushmalperera/Downloads/homepage.jpg');
+  background-image: url('/public/homepage.jpg');
   background-size: cover;
   background-position: center;
   position: absolute;
