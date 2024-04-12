@@ -36,7 +36,7 @@ function Home() {
       <section className="image">
         <div className="image-background"></div>
         <div className="image-content">
-          <h1>SOIL: Your Organic Food Partner</h1>
+          <h1>SOIL:: Your Organic Food Partner</h1>
           <p className="intro-text">Welcome to SOIL, the home of Organic Food and Products</p>
         </div>
       </section>
