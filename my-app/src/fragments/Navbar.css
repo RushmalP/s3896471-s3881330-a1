@@ -37,20 +37,29 @@ body {
   margin-left: 20px;
 }
 
-.nav-links a {
+.nav-links a,
+.navbar-text {
   color: #725d4c;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px; /* Set to match the left side font size */
+  font-family: "Times New Roman", Times, serif; /* Ensure font family matches */
 }
 
 .nav-links a:hover {
   color: #725d4c;
 }
 
-.navbar-nav .nav-link {
+.navbar-nav {
+  display: flex; /* Align items in a row */
+  align-items: center; /* Center-align vertically */
+  margin-right: 20px; /* Adjust this as needed */
+}
+
+.nav-link {
   color: #725d4c; /* Bright white color */
   font-family: "Times New Roman", Times, serif;
   font-size: 18px;
+  align-items: center;
 }
 
 .navbar-nav .nav-link:hover,
@@ -58,6 +67,15 @@ body {
   color: #725d4c; /* Slightly off-white for hover/focus states */
 }
 
-.navbar-text {
-  color: #725d4c; /* Bright white color */
+
+.navbar-nav .nav-item .btn-outline-dark {
+  color: #725d4c; /* Text color */
+  font-size: 18px; /* Font size */
+  font-family: "Times New Roman", Times, serif; /* Font family */
+  border-color: #ffffff; /* White border color */
+}
+
+.navbar-nav .nav-item .btn-outline-dark:hover {
+  color: #ffffff; /* Text color on hover */
+  background-color: #ffffff; /* Background color on hover */
 }

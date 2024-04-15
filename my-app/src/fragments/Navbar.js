@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
- import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+ import { Link, useNavigate , useLocation} from 'react-router-dom';
  import LogoutModal from '../fragments/LogoutModal'; 
  import 'bootstrap/dist/css/bootstrap.min.css';
  import './Navbar.css';
 
  function Navbar({ username, logoutUser }) {
    const navigate = useNavigate();
+   const location = useLocation();
    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
    const handleLogout = () => {
     logoutUser();
     console.log("Logout clicked");
     setShowLogoutModal(true);
-};
+    };
 
    const handleCloseModal = () => {
      setShowLogoutModal(false);
      navigate('/');
-   };
+    };
+
+    useEffect(() => {
+      window.scrollTo(0, 0); // Scroll to the top of the page on route change
+    }, [location.pathname]);
 
    return (
      <>
@@ -69,8 +74,10 @@ import React, { useState } from 'react';
                    </span>
                  </li>
                  <li className="nav-item">
-                   <button className="btn btn-outline-light" onClick={handleLogout}>Logout</button>
-                 </li>
+                  <button className="btn btn-outline-dark" onClick={handleLogout} style={{ color: '#725d4c', fontSize: '18px', fontFamily: '"Times New Roman", Times, serif' }}>
+                    Logout
+                  </button>
+                </li>
                </ul>
              ) : (
                <ul className="navbar-nav ms-auto">
