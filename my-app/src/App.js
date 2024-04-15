@@ -10,15 +10,27 @@ import SignIn from './pages/SignIn';
 import DietPlan from './pages/DietPlan';
 import Cart from './pages/Cart';
 import { getUser, removeUser } from "./data/userPass";
+import { initUsers } from "./data/userPass";
 
 
 function App() {
   const [username, setUsername] = useState(getUser());
+  useEffect(() => {
+    initUsers();  
+  }, []);
 
   useEffect(() => {
     const specials = [
       { name: 'Organic Apples', description: 'Fresh and juicy organic apples.', price: 3.99 },
       { name: 'Whole Grain Bread', description: 'Healthy whole grain bread.', price: 2.49 },
+      { name: 'Gardening Gloves', description: 'Durable gloves perfect for planting and weeding.', price: 5.99 },
+      { name: 'Compost Mix', description: 'Rich, nutritious compost to enrich your soil.', price: 7.50 },
+      { name: 'Cherry Tomato Plant', description: 'Young plants ready for transplantation.', price: 4.25 },
+      { name: 'Herb Garden Kit', description: 'Everything you need to start your own herb garden.', price: 9.99 },
+      { name: 'Bee-friendly Flower Seeds', description: 'Attract bees and butterflies with these seeds.', price: 3.45 },
+      { name: 'Organic Fertilizer', description: 'Boost your garden growth with organic fertilizer.', price: 6.75 },
+      { name: 'Watering Can', description: 'Stylish and practical, perfect for your gardening needs.', price: 12.99 },
+      { name: 'Leaf Rake', description: 'Lightweight and easy to use, ideal for gathering leaves.', price: 8.50 }
       // Add more specials here
     ];
     localStorage.setItem('specials', JSON.stringify(specials));

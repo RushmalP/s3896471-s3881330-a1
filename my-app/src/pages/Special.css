@@ -24,3 +24,25 @@
     font-weight: bold;
     color: green;
 }
+
+.gardening-tips {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tip {
+    margin-bottom: 15px;
+}
+
+.tip h3 {
+    color: #2a5d34;
+}
+
+.tip p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
