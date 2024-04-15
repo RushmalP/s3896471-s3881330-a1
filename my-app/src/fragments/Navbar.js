@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
  import { Link, useNavigate } from 'react-router-dom';
- import LogoutModal from './LogoutModal'; 
+ import LogoutModal from '../fragments/LogoutModal'; 
  import 'bootstrap/dist/css/bootstrap.min.css';
  import './Navbar.css';
 
@@ -9,9 +9,10 @@ import React, { useState } from 'react';
    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
    const handleLogout = () => {
-     logoutUser();
-     setShowLogoutModal(true);
-   };
+    logoutUser();
+    console.log("Logout clicked");
+    setShowLogoutModal(true);
+};
 
    const handleCloseModal = () => {
      setShowLogoutModal(false);

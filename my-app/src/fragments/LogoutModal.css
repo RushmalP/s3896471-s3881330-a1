@@ -1,4 +1,4 @@
-.modal {
+.lm {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
     z-index: 1050;
   }
   
-  .modal-content {
+  .lm-content {
     background-color: #e5dfd2;
     padding: 20px;
     border-radius: 5px;
@@ -21,7 +21,7 @@
     text-align: center;
   }
 
-  button {
+  button1 {
     background-color: #000000;
     color: white;
     border: none;
@@ -31,6 +31,6 @@
     border-radius: 5px; /* Add border-radius for smooth edges */
   }
   
-  button:hover {
+  button1:hover {
     background-color: #000000;
   }
