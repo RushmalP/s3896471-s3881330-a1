@@ -30,7 +30,6 @@ function App() {
       { name: 'Bee-friendly Flower Seeds', description: 'Attract bees and butterflies with these seeds.', price: 3.45 },
       { name: 'Organic Fertilizer', description: 'Boost your garden growth with organic fertilizer.', price: 6.75 },
       { name: 'Watering Can', description: 'Stylish and practical, perfect for your gardening needs.', price: 12.99 },
-      { name: 'Leaf Rake', description: 'Lightweight and easy to use, ideal for gathering leaves.', price: 8.50 }
       // Add more specials here
     ];
     localStorage.setItem('specials', JSON.stringify(specials));
