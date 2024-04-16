@@ -1,23 +1,38 @@
-/* Add organic textures and center the login box */
 .loginContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative; 
+  }
+  
+  .loginContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: url('/public/login.jpg') no-repeat center center;
     background-size: cover;
+    filter: brightness(68%);
+    z-index: -1; /* Set behind the content */
   }
   
   .loginBox {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white to allow texture to show through */
-    border: 1px solid #ccc; /* Optional: adds a fine border around the login box */
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     max-width: 400px;
     width: 100%;
     margin: auto;
+    position: relative; /* Ensure the box is above the pseudo-element */
+    z-index: 1; /* Higher z-index than the pseudo-element */
+    font-family: "Times New Roman", Times, serif;
   }
+  
   
   .form-group {
     margin-bottom: 1rem;
@@ -26,7 +41,7 @@
   
   .control-label {
     font-size: 1.1rem;
-    color: #555; /* Darker font color for better readability */
+    color: #000000; /* Darker font color for better readability */
     margin-bottom: .5rem;
   }
   
@@ -34,8 +49,8 @@
     width: 100%;
     padding: .75rem;
     border-radius: 4px;
-    border: 1px solid #aaa;
-    background-color: #f8f8f8; /* Light background for the input */
+    border: 1px solid #000000;
+    background-color: #ffffff; /* Light background for the input */
     box-sizing: border-box;
   }
 
@@ -52,11 +67,12 @@
     padding: .75rem;
     border-radius: 4px;
     border: none;
-    background-color: #4CAF50; /* Green color to match organic theme */
+    background-color: #006400; /* Green color to match organic theme */
     color: white;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: "Times New Roman", Times, serif;
   }
   
   .btn-primary:hover {
