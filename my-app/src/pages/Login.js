@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { verifyUser } from "../data/userPass";
+import './Login.css';
 
 function Login(props) {
   const [fields, setFields] = useState({ username: "", password: "" });
@@ -46,32 +47,30 @@ function Login(props) {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <hr />
-      <div className="row">
-        <div className="col-md-6">
-          <form onSubmit={handleSubmit}>
+    <div className="loginContainer">
+      <div className="loginBox">
+        <h1>Login</h1>
+        <hr />
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username" className="control-label">Username</label>
+            <input name="username" id="username" className="form-control"
+              value={fields.username} onChange={handleInputChange} />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password" className="control-label">Password</label>
+            <input type="password" name="password" id="password" className="form-control"
+              value={fields.password} onChange={handleInputChange} />
+          </div>
+          <div className="form-group">
+            <input type="submit" className="btn btn-primary" value="Login" />
+          </div>
+          {errorMessage !== null &&
             <div className="form-group">
-              <label htmlFor="username" className="control-label">Username</label>
-              <input name="username" id="username" className="form-control"
-                value={fields.username} onChange={handleInputChange} />
+              <span className="text-danger">{errorMessage}</span>
             </div>
-            <div className="form-group">
-              <label htmlFor="password" className="control-label">Password</label>
-              <input type="password" name="password" id="password" className="form-control"
-                value={fields.password} onChange={handleInputChange} />
-            </div>
-            <div className="form-group">
-              <input type="submit" className="btn btn-primary" value="Login" />
-            </div>
-            {errorMessage !== null &&
-              <div className="form-group">
-                <span className="text-danger">{errorMessage}</span>
-              </div>
-            }
-          </form>
-        </div>
+          }
+        </form>
       </div>
     </div>
   );

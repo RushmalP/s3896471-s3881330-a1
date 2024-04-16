@@ -57,7 +57,14 @@ body {
   margin: 0 10px; /* Optional: adds some space between the boxes */
 }
 
-h1 {
+.home h1 {
+  margin: 5px 0;
+  line-height: 1.6;
+  text-align: center;
+  color: #000000;
+}
+
+.image-content h1 {
   color: #ffffff;
   font-family: "Times New Roman", Times, serif;
 }
