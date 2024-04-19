@@ -1,9 +1,8 @@
 import React from 'react';
 
 function Profile() {
-  // Assume user details and the date of joining are stored in localStorage
   const userDetails = JSON.parse(localStorage.getItem('userDetails'));
-  const joiningDate = userDetails?.joiningDate; // Replace with your actual joining date key
+  const joiningDate = userDetails?.joiningDate; 
 
   return (
     <main>
@@ -12,7 +11,7 @@ function Profile() {
         <div>
           <p>Name: {userDetails.name}</p>
           <p>Email: {userDetails.email}</p>
-          {/* Display other user details as needed */}
+          {/* Display other user details if needed */}
           {joiningDate && <p>Date of Joining: {joiningDate}</p>}
         </div>
       ) : (

@@ -6,7 +6,7 @@ const SignIn = ({ loginUser }) => {
         name: '',
         email: '',
         password: ''
-        // Consider adding a joiningDate field here if you want to show it in the form
+        
     });
     const [error, setError] = useState('');
     const navigate = useNavigate();
