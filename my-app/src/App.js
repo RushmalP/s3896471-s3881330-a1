@@ -28,6 +28,8 @@ function App() {
     setUsername(null);
     localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userDetails');
   };
 
   const closeLoginAlert = () => {
@@ -58,7 +60,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home username={username} />} />
               <Route path="/login" element={<Login loginUser={loginUser} />} />
-              <Route path="/profile" element={<Profile username={username} />} />
+              <Route path="/profile" element={<Profile logoutUser={logoutUser} />} />
               <Route path="/specials" element={<Specials />} />
               <Route path="/signIn" element={<SignIn loginUser={loginUser} />} />
               <Route path="/dietplan" element={<DietPlan />} />

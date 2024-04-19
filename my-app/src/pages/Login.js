@@ -7,13 +7,11 @@ function Login(props) {
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
 
-  // Handle field changes.
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFields(prevFields => ({ ...prevFields, [name]: value }));
   };
 
-  // Function to verify user credentials.
   const verifyUser = (email, password) => {
     const userDetails = JSON.parse(localStorage.getItem('userDetails'));
     return userDetails && userDetails.email === email && userDetails.password === password;

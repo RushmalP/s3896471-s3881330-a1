@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
-function Profile({ loginUser }) {
+function Profile({ logoutUser }) {
   const userDetailsFromStorage = JSON.parse(localStorage.getItem('userDetails')) || {};
   const [editing, setEditing] = useState(false);
   const [userDetails, setUserDetails] = useState(userDetailsFromStorage);
@@ -15,19 +15,22 @@ function Profile({ loginUser }) {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    // Insert validation checks here similar to the signup form...
 
     localStorage.setItem('userDetails', JSON.stringify(userDetails));
     setMessage('Profile updated successfully!');
-    setEditing(false);  // Exit editing mode
+    setEditing(false);  
   };
 
   const handleDelete = () => {
-    localStorage.removeItem('userDetails');
-    localStorage.removeItem('isLoggedIn');
-    loginUser({});  // Clear user details
-    navigate('/');  // Redirect to home or signup page
+    if (window.confirm("Are you sure you want to delete your profile?")) {
+      localStorage.removeItem('userDetails');
+      localStorage.removeItem('isLoggedIn');
+      alert("Profile Deleted");
+      logoutUser();  // Log the user out
+      navigate('/');  // Redirect to the home page
+    }
   };
+
 
   const enterEditMode = () => {
     setEditing(true);
@@ -61,7 +64,7 @@ function Profile({ loginUser }) {
       <p>Email: {userDetails.email}</p>
       <p>Date of Joining: {userDetails.joiningDate}</p>
       <button onClick={enterEditMode}>Edit</button>
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={handleDelete}>Delete Profile</button>
       {message && <p>{message}</p>}
     </main>
   );
