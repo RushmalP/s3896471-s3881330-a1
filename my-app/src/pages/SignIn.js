@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './SignIn.css';
 
 const SignIn = ({ loginUser }) => {
     const [userDetails, setUserDetails] = useState({
@@ -48,16 +49,19 @@ const SignIn = ({ loginUser }) => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="name" placeholder="Name" value={userDetails.name} onChange={handleChange} />
-                <input type="email" name="email" placeholder="Email" value={userDetails.email} onChange={handleChange} />
-                <input type="password" name="password" placeholder="Password" value={userDetails.password} onChange={handleChange} />
-                <button type="submit">Sign Up</button>
-            </form>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-        </div>
-    );
+      <div className="signIn-container">
+          <div className="form-box">
+          <h1>Sign in</h1>
+              <form onSubmit={handleSubmit}>
+                  <input type="text" name="name" placeholder="Name" value={userDetails.name} onChange={handleChange} />
+                  <input type="email" name="email" placeholder="Email" value={userDetails.email} onChange={handleChange} />
+                  <input type="password" name="password" placeholder="Password" value={userDetails.password} onChange={handleChange} />
+                  <button1 type="submit">Sign Up</button1>
+              </form>
+              {error && <p className="error-message">{error}</p>}
+          </div>
+      </div>
+  );
 };
 
 export default SignIn;
