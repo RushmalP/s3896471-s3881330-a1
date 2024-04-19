@@ -6,6 +6,7 @@ const SignIn = ({ loginUser }) => {
         name: '',
         email: '',
         password: ''
+        // Consider adding a joiningDate field here if you want to show it in the form
     });
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -31,8 +32,17 @@ const SignIn = ({ loginUser }) => {
             return;
         }
 
-        localStorage.setItem('userDetails', JSON.stringify(userDetails));
-        loginUser(userDetails.email);  // Set the global username state
+        // Capture the date of joining
+        const dateOfJoining = new Date().toLocaleDateString();
+        // Add the joining date to the userDetails object
+        const newUserDetails = { ...userDetails, joiningDate: dateOfJoining };
+
+        // Store the updated user details with the joining date in localStorage
+        localStorage.setItem('userDetails', JSON.stringify(newUserDetails));
+        
+        // Pass the newUserDetails object to loginUser to update the state and login the user
+        loginUser(newUserDetails);  
+        
         navigate('/');  // Redirect to the home page where additional navbar buttons are visible
         setError('');
     };
