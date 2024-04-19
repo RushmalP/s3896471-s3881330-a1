@@ -60,35 +60,34 @@ import React, { useState, useEffect } from 'react';
                    <li className="nav-item">
                      <Link className="nav-link" to="/cart">Cart</Link>
                    </li>
-                   <li className="nav-item">
-                     <Link className="nav-link" to="/profile">Profile</Link>
-                   </li>
                  </>
                )}
              </ul>
              {username ? (
-               <ul className="navbar-nav">
-                 <li className="nav-item">
-                   <span className="navbar-text me-3">
-                     Welcome
-                   </span>
-                 </li>
-                 <li className="nav-item">
-                  <button className="btn btn-outline-dark" onClick={handleLogout} style={{ color: '#725d4c', fontSize: '18px', fontFamily: '"Times New Roman", Times, serif' }}>
-                    Logout
-                  </button>
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/profile">Profile</Link>
                 </li>
-               </ul>
-             ) : (
-               <ul className="navbar-nav ms-auto">
-                 <li className="nav-item">
-                   <Link className="nav-link" to="/signin">Sign In</Link>
-                 </li>
-                 <li className="nav-item">
-                   <Link className="nav-link" to="/login">Login</Link>
-                 </li>
-               </ul>
-             )}
+                <li className="nav-item">
+                <button
+                  className="btn btn-outline-dark logout-button-class"
+                  onClick={handleLogout}
+                  style={{ color: '#725d4c', fontSize: '18px', fontFamily: '"Times New Roman", Times, serif', margin: 'auto' 
+                  }} >
+                  Logout
+                </button>
+                </li>
+              </ul>
+            ) : (
+              <ul className="navbar-nav ms-auto">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/signin">Sign In</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">Login</Link>
+                </li>
+              </ul>
+            )}
            </div>
          </div>
        </nav>

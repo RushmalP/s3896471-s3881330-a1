@@ -73,9 +73,13 @@ body {
   font-size: 18px; /* Font size */
   font-family: "Times New Roman", Times, serif; /* Font family */
   border-color: #ffffff; /* White border color */
+  text-align: center;
 }
 
 .navbar-nav .nav-item .btn-outline-dark:hover {
   color: #ffffff; /* Text color on hover */
   background-color: #ffffff; /* Background color on hover */
+  text-align: center;
 }
+
+

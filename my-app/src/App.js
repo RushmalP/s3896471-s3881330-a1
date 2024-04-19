@@ -10,21 +10,28 @@ import SignIn from './pages/SignIn';
 import DietPlan from './pages/DietPlan';
 import Cart from './pages/Cart';
 import { getUser} from "./data/userPass";
+import LoginAlert from './fragments/LoginAlert'; 
 
 function App() {
   const [username, setUsername] = useState(getUser());
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
+  const [showLoginAlert, setShowLoginAlert] = useState(false);
 
   const loginUser = (username) => {
     setUsername(username);
     localStorage.setItem('isLoggedIn', 'true');
     setIsLoggedIn(true);
+    setShowLoginAlert(true);
   };
 
   const logoutUser = () => {
     setUsername(null);
     localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
+  };
+
+  const closeLoginAlert = () => {
+    setShowLoginAlert(false);
   };
 
   useEffect(() => {
@@ -60,6 +67,7 @@ function App() {
           </div>
         </main>
         <Footer />
+        <LoginAlert show={showLoginAlert} onClose={closeLoginAlert} />
       </Router>
     </div>
   );
