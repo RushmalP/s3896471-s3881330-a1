@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
  import { Link, useNavigate , useLocation} from 'react-router-dom';
- import LogoutModal from '../fragments/LogoutModal'; 
+ import LogoutModal from '../fragments/LogoutAlert'; 
  import 'bootstrap/dist/css/bootstrap.min.css';
  import './Navbar.css';
 

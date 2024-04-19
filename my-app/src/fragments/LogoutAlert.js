@@ -1,7 +1,7 @@
 import React from 'react';
-import '../fragments/LogoutModal.css'; // Ensure the CSS path is correct
+import '../fragments/LogoutAlert.css'; 
 
-function LogoutModal({ show, onClose }) {
+function LogoutAlert({ show, onClose }) {
   if (!show) return null;
 
   return (
@@ -14,4 +14,4 @@ function LogoutModal({ show, onClose }) {
   );
 }
 
-export default LogoutModal;
+export default LogoutAlert;
