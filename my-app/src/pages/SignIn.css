@@ -48,9 +48,9 @@ input[type="password"] {
     font-family: "Times New Roman", Times, serif;
 }
 
-button1 {
+button {
     padding: 10px;
-    background-color: #006400; /* Bootstrap primary blue */
+    background-color: #006400; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -59,8 +59,8 @@ button1 {
     font-family: "Times New Roman", Times, serif;
 }
 
-button1:hover {
-    background-color: #388E3C; /* Darker blue on hover */
+button:hover {
+    background-color: #388E3C; 
 }
 
 /* Style for error messages */

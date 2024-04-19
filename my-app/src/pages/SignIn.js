@@ -56,7 +56,7 @@ const SignIn = ({ loginUser }) => {
                   <input type="text" name="name" placeholder="Name" value={userDetails.name} onChange={handleChange} />
                   <input type="email" name="email" placeholder="Email" value={userDetails.email} onChange={handleChange} />
                   <input type="password" name="password" placeholder="Password" value={userDetails.password} onChange={handleChange} />
-                  <button1 type="submit">Sign Up</button1>
+                  <button type="submit">Sign Up</button>
               </form>
               {error && <p className="error-message">{error}</p>}
           </div>
