@@ -16,6 +16,7 @@ function App() {
   const [username, setUsername] = useState(getUser());
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
   const [showLoginAlert, setShowLoginAlert] = useState(false);
+  
 
   const loginUser = (username) => {
     setUsername(username);
