@@ -30,7 +30,6 @@ function App() {
     localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
     localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('userDetails');
   };
 
   const closeLoginAlert = () => {
