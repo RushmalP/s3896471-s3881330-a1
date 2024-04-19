@@ -6,8 +6,8 @@ const SignIn = ({ loginUser }) => {
     const [userDetails, setUserDetails] = useState({
         name: '',
         email: '',
-        password: ''
-        
+        password: '',
+        confirmPassword: ''  // Added field for password confirmation
     });
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const SignIn = ({ loginUser }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!userDetails.name || !userDetails.email || !userDetails.password) {
+        if (!userDetails.name || !userDetails.email || !userDetails.password || !userDetails.confirmPassword) {
             setError('All fields are required');
             return;
         }
@@ -33,35 +33,35 @@ const SignIn = ({ loginUser }) => {
             return;
         }
 
-        // Capture the date of joining
-        const dateOfJoining = new Date().toLocaleDateString();
-        // Add the joining date to the userDetails object
-        const newUserDetails = { ...userDetails, joiningDate: dateOfJoining };
+        if (userDetails.password !== userDetails.confirmPassword) {
+            setError('Passwords do not match');
+            return;
+        }
 
-        // Store the updated user details with the joining date in localStorage
+        // All validations passed, proceed with user registration
+        const dateOfJoining = new Date().toLocaleDateString();
+        const newUserDetails = { ...userDetails, joiningDate: dateOfJoining };
         localStorage.setItem('userDetails', JSON.stringify(newUserDetails));
-        
-        // Pass the newUserDetails object to loginUser to update the state and login the user
         loginUser(newUserDetails);  
-        
-        navigate('/');  // Redirect to the home page where additional navbar buttons are visible
+        navigate('/');
         setError('');
     };
 
     return (
-      <div className="signIn-container">
-          <div className="form-box">
-          <h1>Sign in</h1>
-              <form onSubmit={handleSubmit}>
-                  <input type="text" name="name" placeholder="Name" value={userDetails.name} onChange={handleChange} />
-                  <input type="email" name="email" placeholder="Email" value={userDetails.email} onChange={handleChange} />
-                  <input type="password" name="password" placeholder="Password" value={userDetails.password} onChange={handleChange} />
-                  <button type="submit">Sign Up</button>
-              </form>
-              {error && <p className="error-message">{error}</p>}
-          </div>
-      </div>
-  );
+        <div className="signIn-container">
+            <div className="form-box">
+                <h1>Sign in</h1>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" name="name" placeholder="Name" value={userDetails.name} onChange={handleChange} />
+                    <input type="email" name="email" placeholder="Email" value={userDetails.email} onChange={handleChange} />
+                    <input type="password" name="password" placeholder="Password" value={userDetails.password} onChange={handleChange} />
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password" value={userDetails.confirmPassword} onChange={handleChange} />
+                    <button type="submit">Sign Up</button>
+                </form>
+                {error && <p className="error-message">{error}</p>}
+            </div>
+        </div>
+    );
 };
 
 export default SignIn;

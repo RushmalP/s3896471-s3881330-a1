@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
@@ -6,8 +6,17 @@ function Profile({ logoutUser }) {
   const userDetailsFromStorage = JSON.parse(localStorage.getItem('userDetails')) || {};
   const [editing, setEditing] = useState(false);
   const [userDetails, setUserDetails] = useState(userDetailsFromStorage);
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => setMessage(''), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   const handleChange = (e) => {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
@@ -15,10 +24,14 @@ function Profile({ logoutUser }) {
 
   const handleEdit = (e) => {
     e.preventDefault();
-
-    localStorage.setItem('userDetails', JSON.stringify(userDetails));
+    if (newPassword !== confirmPassword) {
+      setMessage("Passwords do not match!");
+      return;
+    }
+    const updatedDetails = newPassword ? { ...userDetails, password: newPassword } : userDetails;
+    localStorage.setItem('userDetails', JSON.stringify(updatedDetails));
     setMessage('Profile updated successfully!');
-    setEditing(false);  
+    setEditing(false);
   };
 
   const handleDelete = () => {
@@ -26,11 +39,10 @@ function Profile({ logoutUser }) {
       localStorage.removeItem('userDetails');
       localStorage.removeItem('isLoggedIn');
       alert("Profile Deleted");
-      logoutUser();  // Log the user out
-      navigate('/');  // Redirect to the home page
+      logoutUser();
+      navigate('/');
     }
   };
-
 
   const enterEditMode = () => {
     setEditing(true);
@@ -38,34 +50,48 @@ function Profile({ logoutUser }) {
 
   const exitEditMode = () => {
     setEditing(false);
-    setUserDetails(JSON.parse(localStorage.getItem('userDetails')));  // Reset any unsaved changes
+    setUserDetails(JSON.parse(localStorage.getItem('userDetails')));
   };
 
-  if (editing) {
-    return (
-      <main>
-        <h1>Edit Profile</h1>
-        <form onSubmit={handleEdit}>
-          <input type="text" name="name" placeholder="Name" value={userDetails.name} onChange={handleChange} />
-          <input type="email" name="email" placeholder="Email" value={userDetails.email} onChange={handleChange} />
-          <input type="password" name="password" placeholder="New Password" value={userDetails.password} onChange={handleChange} />
-          <button type="submit">Save Changes</button>
-          <button type="button" onClick={exitEditMode}>Cancel</button>
-        </form>
-        {message && <p>{message}</p>}
-      </main>
-    );
-  }
+  const renderEditView = () => (
+    <form onSubmit={handleEdit} className="profile-form">
+      <label htmlFor="name">Name</label>
+      <input id="name" type="text" name="name" placeholder="Name" value={userDetails.name || ''} onChange={handleChange} />
+      
+      <label htmlFor="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="Email" value={userDetails.email || ''} onChange={handleChange} />
+      
+      <label htmlFor="password">New Password (optional)</label>
+      <input id="password" type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+      
+      <label htmlFor="confirm-password">Confirm New Password</label>
+      <input id="confirm-password" type="password" placeholder="Confirm New Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+      
+      <div className="buttons">
+        <button type="submit" className="save">Save Changes</button>
+        <button type="button" onClick={exitEditMode} className="cancel">Cancel</button>
+      </div>
+      {message && <p className="message">{message}</p>}
+    </form>
+  );
+
+  const renderDefaultView = () => (
+    <div className="profile-info">
+      <p><strong>Name:</strong> {userDetails.name}</p>
+      <p><strong>Email:</strong> {userDetails.email}</p>
+      <p><strong>Date of Joining:</strong> {userDetails.joiningDate}</p>
+      <div className="buttons">
+        <button onClick={enterEditMode}>Edit</button>
+        <button onClick={handleDelete}>Delete Profile</button>
+      </div>
+      {message && <p className="message">{message}</p>}
+    </div>
+  );
 
   return (
-    <main>
-      <h1>Profile</h1>
-      <p>Name: {userDetails.name}</p>
-      <p>Email: {userDetails.email}</p>
-      <p>Date of Joining: {userDetails.joiningDate}</p>
-      <button onClick={enterEditMode}>Edit</button>
-      <button onClick={handleDelete}>Delete Profile</button>
-      {message && <p>{message}</p>}
+    <main className={editing ? "editing" : "viewing"}>
+      <h1>{editing ? "Edit Profile" : "Profile"}</h1>
+      {editing ? renderEditView() : renderDefaultView()}
     </main>
   );
 }
