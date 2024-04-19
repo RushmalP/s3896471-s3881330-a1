@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./fragments/Navbar";
 import Footer from "./fragments/Footer";
 import Home from "./pages/Home";
@@ -9,15 +9,23 @@ import Specials from './pages/Specials';
 import SignIn from './pages/SignIn';
 import DietPlan from './pages/DietPlan';
 import Cart from './pages/Cart';
-import { getUser, removeUser } from "./data/userPass";
-import { initUsers } from "./data/userPass";
-
+import { getUser} from "./data/userPass";
 
 function App() {
   const [username, setUsername] = useState(getUser());
-  useEffect(() => {
-    initUsers();  
-  }, []);
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
+
+  const loginUser = (username) => {
+    setUsername(username);
+    localStorage.setItem('isLoggedIn', 'true');
+    setIsLoggedIn(true);
+  };
+
+  const logoutUser = () => {
+    setUsername(null);
+    localStorage.removeItem('isLoggedIn');
+    setIsLoggedIn(false);
+  };
 
   useEffect(() => {
     const specials = [
@@ -30,25 +38,14 @@ function App() {
       { name: 'Bee-friendly Flower Seeds', description: 'Attract bees and butterflies with these seeds.', price: 3.45 },
       { name: 'Organic Fertilizer', description: 'Boost your garden growth with organic fertilizer.', price: 6.75 },
       { name: 'Watering Can', description: 'Stylish and practical, perfect for your gardening needs.', price: 12.99 },
-      // Add more specials here
     ];
     localStorage.setItem('specials', JSON.stringify(specials));
   }, []);
 
-
-  const loginUser = (username) => {
-    setUsername(username);
-  }
-
-  const logoutUser = () => {
-    removeUser();
-    setUsername(null);
-  }
-
   return (
     <div className="d-flex flex-column min-vh-100">
       <Router>
-        <Navbar username={username} logoutUser={logoutUser} />
+        <Navbar username={username} logoutUser={logoutUser} isLoggedIn={isLoggedIn} />
         <main role="main">
           <div className="container my-3">
             <Routes>
@@ -56,7 +53,7 @@ function App() {
               <Route path="/login" element={<Login loginUser={loginUser} />} />
               <Route path="/profile" element={<Profile username={username} />} />
               <Route path="/specials" element={<Specials />} />
-              <Route path="/signIn" element={<SignIn />} />
+              <Route path="/signIn" element={<SignIn loginUser={loginUser} />} />
               <Route path="/dietplan" element={<DietPlan />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>

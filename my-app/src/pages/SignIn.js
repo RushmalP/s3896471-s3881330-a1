@@ -1,34 +1,53 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function SignIn() {
-  return (
-    <div className="container" style={{ border: '1px solid #ccc', padding: '20px', marginTop: '20px' }}>
-      <h1>Sign Up</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr />
+const SignIn = ({ loginUser }) => {
+    const [userDetails, setUserDetails] = useState({
+        name: '',
+        email: '',
+        password: ''
+    });
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-      <label htmlFor="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required />
+    const handleChange = (e) => {
+        setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
+    };
 
-      <label htmlFor="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required />
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!userDetails.name || !userDetails.email || !userDetails.password) {
+            setError('All fields are required');
+            return;
+        }
 
-      <label htmlFor="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required />
+        if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(userDetails.email)) {
+            setError('Invalid email format');
+            return;
+        }
 
-      <label>
-        <input type="checkbox" name="remember" style={{ marginBottom: '15px' }} /> Remember me
-      </label>
+        if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}/.test(userDetails.password)) {
+            setError('Password must be strong: At least 8 characters, including a number, uppercase, lowercase, and special character');
+            return;
+        }
 
-      <p>By creating an account you agree to our <a href="#" style={{ color: 'dodgerblue' }}>Terms & Privacy</a>.</p>
+        localStorage.setItem('userDetails', JSON.stringify(userDetails));
+        loginUser(userDetails.email);  // Set the global username state
+        navigate('/');  // Redirect to the home page where additional navbar buttons are visible
+        setError('');
+    };
 
-      <div className="clearfix">
-        <button type="button" className="cancelbtn">Cancel</button>
-        <button type="submit" className="signupbtn">Sign Up</button>
-      </div>
-    </div>
-  );
-}
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input type="text" name="name" placeholder="Name" value={userDetails.name} onChange={handleChange} />
+                <input type="email" name="email" placeholder="Email" value={userDetails.email} onChange={handleChange} />
+                <input type="password" name="password" placeholder="Password" value={userDetails.password} onChange={handleChange} />
+                <button type="submit">Sign Up</button>
+            </form>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+        </div>
+    );
+};
 
 export default SignIn;

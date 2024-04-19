@@ -1,50 +1,37 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { verifyUser } from "../data/userPass";
 import './Login.css';
 
 function Login(props) {
-  const [fields, setFields] = useState({ username: "", password: "" });
+  const [fields, setFields] = useState({ email: "", password: "" });
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
 
-  // Generic change handler.
+  // Handle field changes.
   const handleInputChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+    const { name, value } = event.target;
+    setFields(prevFields => ({ ...prevFields, [name]: value }));
+  };
 
-    // Copy fields.
-    const temp = { username: fields.username, password: fields.password };
-    // OR use spread operator.
-    // const temp = { ...fields };
-
-    // Update field and state.
-    temp[name] = value;
-    setFields(temp);
-  }
+  // Function to verify user credentials.
+  const verifyUser = (email, password) => {
+    const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+    return userDetails && userDetails.email === email && userDetails.password === password;
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const verified = verifyUser(fields.email, fields.password);
 
-    const verified = verifyUser(fields.username, fields.password);
-
-    // If verified login the user.
-    if(verified === true) {
-      props.loginUser(fields.username);
-
-      // Navigate to the home page.
-      navigate("/");
-      return;
+    if (verified) {
+      props.loginUser(fields.email); // Log the user in using their email.
+      navigate("/"); // Navigate to the home page.
+    } else {
+      // Reset password field and set error message on failure.
+      setFields({ ...fields, password: "" });
+      setErrorMessage("Email and / or password invalid, please try again.");
     }
-
-    // Reset password field to blank.
-    const temp = { ...fields };
-    temp.password = "";
-    setFields(temp);
-
-    // Set error message.
-    setErrorMessage("Username and / or password invalid, please try again.");
-  }
+  };
 
   return (
     <div className="loginContainer">
@@ -53,9 +40,9 @@ function Login(props) {
         <hr />
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="username" className="control-label">Username</label>
-            <input name="username" id="username" className="form-control"
-              value={fields.username} onChange={handleInputChange} />
+            <label htmlFor="email" className="control-label">Email</label>
+            <input name="email" id="email" className="form-control"
+              value={fields.email} onChange={handleInputChange} />
           </div>
           <div className="form-group">
             <label htmlFor="password" className="control-label">Password</label>
@@ -65,11 +52,11 @@ function Login(props) {
           <div className="form-group">
             <input type="submit" className="btn btn-primary" value="Login" />
           </div>
-          {errorMessage !== null &&
+          {errorMessage && (
             <div className="form-group">
               <span className="text-danger">{errorMessage}</span>
             </div>
-          }
+          )}
         </form>
       </div>
     </div>
