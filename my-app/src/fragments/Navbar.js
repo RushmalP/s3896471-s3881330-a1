@@ -70,7 +70,7 @@ import React, { useState, useEffect } from 'react';
                <ul className="navbar-nav">
                  <li className="nav-item">
                    <span className="navbar-text me-3">
-                     Welcome, {username}
+                     Welcome
                    </span>
                  </li>
                  <li className="nav-item">
