@@ -27,9 +27,8 @@ function App() {
 
   const logoutUser = () => {
     setUsername(null);
-    localStorage.removeItem('isLoggedIn');
+    localStorage.setItem('isLoggedIn', 'false');
     setIsLoggedIn(false);
-    localStorage.removeItem('isLoggedIn');
   };
 
   const closeLoginAlert = () => {
