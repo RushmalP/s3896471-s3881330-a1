@@ -4,15 +4,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Specials = () => {
     const [specials, setSpecials] = useState([]);
+    
 
     useEffect(() => {
-        const storedSpecials = localStorage.getItem('specials');
-        if (storedSpecials) {
-            setSpecials(JSON.parse(storedSpecials));
-        }
-    }, []);
+        const loadedSpecials = JSON.parse(localStorage.getItem('specials')) || [];
+        setSpecials(loadedSpecials);
+      }, []);
 
-    return (
+      const addToCart = (item) => {
+        const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Assuming `item` does not have a unique ID, add one here:
+        const itemWithId = { ...item, id: Date.now() }; // Date.now() is a simple way to get a unique timestamp
+        existingCart.push(itemWithId);
+        localStorage.setItem('cart', JSON.stringify(existingCart));
+      };
+      
+      return (
         <div className="s-container">
             <h2>Weekly Specials</h2>
             <ul>
@@ -21,7 +28,8 @@ const Specials = () => {
                         <div className="special">
                             <h3>{special.name}</h3>
                             <p>{special.description}</p>
-                            <p className="price">${special.price}</p>
+                            <p className="price">${special.price.toFixed(2)}</p>
+                            <button onClick={() => addToCart(special)} className="add-to-cart-button">Add to Cart</button>
                         </div>
                     </li>
                 ))}
