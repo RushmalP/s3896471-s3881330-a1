@@ -37,15 +37,15 @@ function App() {
 
   useEffect(() => {
     const specials = [
-      { name: 'Organic Apples', description: 'Fresh and juicy organic apples.', price: 3.99 },
-      { name: 'Whole Grain Bread', description: 'Healthy whole grain bread.', price: 2.49 },
-      { name: 'Gardening Gloves', description: 'Durable gloves perfect for planting and weeding.', price: 5.99 },
-      { name: 'Compost Mix', description: 'Rich, nutritious compost to enrich your soil.', price: 7.50 },
-      { name: 'Cherry Tomato Plant', description: 'Young plants ready for transplantation.', price: 4.25 },
-      { name: 'Herb Garden Kit', description: 'Everything you need to start your own herb garden.', price: 9.99 },
-      { name: 'Bee-friendly Flower Seeds', description: 'Attract bees and butterflies with these seeds.', price: 3.45 },
-      { name: 'Organic Fertilizer', description: 'Boost your garden growth with organic fertilizer.', price: 6.75 },
-      { name: 'Watering Can', description: 'Stylish and practical, perfect for your gardening needs.', price: 12.99 },
+      { name: 'Organic Apples', description: 'Half a dozen of juicy organic apples.', price: 3.99 },
+      { name: 'Whole Grain Bread', description: 'Fresh and healthy whole grain bread.', price: 3.49 },
+      { name: 'Greek Yogurt', description: '1 kg of delicious greek yogurt for optimal gut health.', price: 7.99 },
+      { name: 'Organic Strawberries', description: '500 grams of sweet, hand-picked strawberries.', price: 5.99 },
+      { name: 'Cherry Tomatoes', description: '500 grams of ripe cherry tomatoes.', price: 4.49 },
+      { name: 'Avocados', description: '500 grams of nutritious avocados.', price: 4.99 },
+      { name: 'Free-range Eggs', description: 'A dozen of large eggs.', price: 10.49 },
+      { name: 'Mushrooms', description: '500 grams of organically grown mushrooms.', price: 8.99 },
+      { name: 'Organic Oranges', description: 'Half a dozen of fresh oranges rich in vitamin C.', price: 4.99 },
     ];
     localStorage.setItem('specials', JSON.stringify(specials));
   }, []);
