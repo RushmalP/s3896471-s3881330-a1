@@ -23,7 +23,7 @@ function Login(props) {
 
     if (verified) {
       props.loginUser(fields.email); // Log the user in using their email.
-      navigate("/"); // Navigate to the home page.
+      navigate("/profile"); // Navigate to the profile page.
     } else {
       // Reset password field and set error message on failure.
       setFields({ ...fields, password: "" });
