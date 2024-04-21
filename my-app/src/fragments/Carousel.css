@@ -1,0 +1,68 @@
+.carousel-container {
+    position: relative;
+    width: 100%; /* Use the full width of the parent */
+    overflow: hidden; /* Hide the overflow */
+    margin-top: 30px;
+}
+
+.carousel-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item {
+    width: calc(100% - 120px); /* Adjust the width to create space for the arrows on the sides */
+    margin: 0 auto; /* Auto margins for centering */
+    padding: 20px; /* Padding inside items */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    text-align: center;
+    opacity: 0.5; /* Non-active items opacity */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition for scaling and opacity */
+    overflow: hidden; /* Hide overflow inside each item */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.carousel-item.active {
+    opacity: 1; /* Active item fully opaque */
+    transform: scale(1.05); /* Scale up active item */
+}
+
+.carousel-control {
+    position: absolute;
+    top: 40%; /* Move the control up by reducing the percentage */
+    transform: translateY(-50%);
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px; /* Reduce padding for a smaller button */
+    cursor: pointer;
+    font-size: 18px; /* Smaller font size for the arrow glyph */
+    width: 30px; /* Smaller width for the button */
+    height: 30px; /* Smaller height for the button */
+    text-align: center;
+    line-height: 20px; /* Adjust line height to match the new height */
+    border-radius: 50%; /* Keeps the button circular */
+}
+
+
+.carousel-control.left {
+    left: 1px; /* Adjust the left position to bring the arrow into view */
+}
+
+.carousel-control.right {
+    right: -9px; /* Adjust the right position to bring the arrow into view */
+}
+
+
+/* Responsive adjustments might be necessary for smaller screens */
+@media (max-width: 768px) {
+    .carousel-control.left,
+    .carousel-control.right {
+        left: 10px; /* Adjust for smaller screens */
+        right: 10px; /* Adjust for smaller screens */
+    }
+}
