@@ -50,7 +50,7 @@ const SignIn = ({ loginUser }) => {
       return (
               <div className="centered-container">
               <div className="signIn-container">
-                <h1>Sign in</h1>
+                <h1>Sign Up</h1>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="name" placeholder="Name" value={userDetails.name} onChange={handleChange} />
                     <input type="email" name="email" placeholder="Email" value={userDetails.email} onChange={handleChange} />
