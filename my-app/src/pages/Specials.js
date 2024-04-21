@@ -97,7 +97,7 @@ const Specials = ({ isLoggedIn }) => {
                     <img src="gardening4.jpg" alt="Adding Mulch" />
                 </div>
                 <div className="tip">
-                    <h3>Watering</h3>
+                    <h3>Haversting/Watering</h3>
                     <p>Vegetables need consistent moisture. Water deeply a few times a week rather than a little every day to encourage deep root growth.</p>
                     <img src="gardening5.jpg" alt="Watering" />
                 </div>
