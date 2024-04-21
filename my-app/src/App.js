@@ -39,7 +39,7 @@ function App() {
     const specials = [
       { id: 'organic_apples', name: 'Organic Apples', description: 'Half a dozen of juicy organic apples.', price: 3.99 },
       { id: 'whole_grain_bread', name: 'Whole Grain Bread', description: 'Fresh and healthy whole grain bread.', price: 3.49 },
-      { id: 'greek_yogurt', name: 'Greek Yogurt', description: '1 kg of delicious greek yogurt for optimal gut health.', price: 7.99 },
+      { id: 'greek_yogurt', name: 'Greek Yogurt', description: '1 kg of delicious greek yogurt for gut health.', price: 7.99 },
       { id: 'organic_strawberries', name: 'Organic Strawberries', description: '500 grams of sweet, hand-picked strawberries.', price: 5.99 },
       { id: 'cherry_tomatoes', name: 'Cherry Tomatoes', description: '500 grams of ripe cherry tomatoes.', price: 4.49 },
       { id: 'avocados', name: 'Avocados', description: '500 grams of nutritious avocados.', price: 4.99 },

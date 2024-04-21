@@ -62,19 +62,17 @@ const Specials = ({ isLoggedIn }) => {
     return (
         <div className="s-container">
             <h2>Weekly Specials</h2>
-            <ul>
-                {specials.map((special) => (
-                    <li key={special.id}>
-                        <div className="special">
-                            <h3>{special.name}</h3>
-                            <p>{special.description}</p>
-                            <p className="price">${special.price.toFixed(2)}</p>
-                            <button onClick={() => addToCart(special)} className="add-to-cart-button">Add to Cart</button>
-                            <span className={`cart-message ${showMessage[special.id] ? 'show' : ''}`}>{messages[special.id]}</span>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            <div className="specials-grid">
+            {specials.map((special) => (
+            <div key={special.id} className="special">
+                <h3>{special.name}</h3>
+                <p>{special.description}</p>
+                <p className="price">${special.price.toFixed(2)}</p>
+                <button onClick={() => addToCart(special)} className="add-to-cart-button">Add to Cart</button>
+                <span className={`cart-message ${showMessage[special.id] ? 'show' : ''}`}>{messages[special.id]}</span>
+            </div>
+            ))}
+        </div>
 
             <div className="gardening-tips">
                 <h2>Backyard Gardening Tips</h2>

@@ -6,12 +6,21 @@
     margin: 0 auto;            
     padding: 20px;
 }
-.special {
-    background-color: #f5f5f5;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-}
+
+.specials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 5%;
+  }
+  
+  .special {
+    background-color: #c5fb6e;
+    padding: 10px;
+    border-radius: 20px;
+    width: 400px; 
+    height: 200px; 
+  }
 
 .special h3 {
     margin-top: 0;
