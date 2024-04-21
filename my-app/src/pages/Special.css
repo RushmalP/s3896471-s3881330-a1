@@ -18,8 +18,9 @@
     background-color: #c5fb6e;
     padding: 10px;
     border-radius: 20px;
-    width: 400px; 
-    height: 200px; 
+    width: 420px; 
+    height: 190px; 
+    text-align: center;
   }
 
 .special h3 {
@@ -70,7 +71,7 @@
 .cart-message {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    display: inline-block; 
+    display: block; 
     margin-left: 10px; 
     color:#725d4c;
 }
