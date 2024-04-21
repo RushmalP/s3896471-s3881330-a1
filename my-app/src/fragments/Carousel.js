@@ -10,7 +10,7 @@ const Carousel = () => {
     },
     {
         title: 'Sustainable Farming',
-        description: 'Organic farming prioritises healthy soils, healthy plants, and healthy habitats. To enhance soil quality and increase the amount of organic soil matter in the soil, organic farmers employ crop rotation as well as biological fertiliser inputs. Farmers lessen the effects of drought and flooding by improving the soils capacity to absorb water by adding more organic matter to the soil. Enhancing soil matter also aids in the soils ability to retain nutrients necessary for the growth of crops that are more resistant to pests and illnesses.'
+        description: 'Organic farming prioritises healthy soils, healthy plants, and healthy habitats. To enhance soil quality and increase the amount of organic soil matter in the soil, organic farmers employ crop rotation as well as biological fertiliser inputs. Farmers lessen the effects of drought and flooding by improving the soils capacity to absorb water by adding more organic matter to the soil. Enhancing soil matter aids in the soils ability to retain nutrients necessary for the growth of crops that are more resistant to pests.'
       },
       {
         title: 'Organic Certification',
@@ -18,12 +18,8 @@ const Carousel = () => {
       },
       {
         title: 'Future for Food',
-        description: 'While there is an ongoing debate on the nutritional content of organic versus conventional foods, many environmentalists say that given its sustainability; organic farming is a significant practice for future food security. Inorganic inputs used in fertilizers, compatibility with natural systems, adaptability to local conditions make organic farming a resilient approach to agriculture. As world populations increase and climate change impacts become more harmful, these types of practices may provide solutions for a long-lasting sustainable food production for the future.'
+        description: 'While there is an ongoing debate on the nutritional content of organic versus conventional foods, many environmentalists say that given its sustainability; organic farming is a significant practice for future food security. Inorganic inputs used in fertilizers, compatibility with natural systems, adaptability to local conditions make organic farming a resilient approach to agriculture. These types of practices may provide solutions for a long-lasting sustainable food production for the future.'
       },
-    {
-      title: 'Healthy Recipes',
-      description: 'Log in and find inspiration for healthy, organic meals with our collection of recipes and cooking tips found in the Diet Plan tab.'
-    }
   ];
 
   useEffect(() => {
