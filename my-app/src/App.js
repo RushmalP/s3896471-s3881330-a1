@@ -9,7 +9,7 @@ import Specials from './pages/Specials';
 import SignIn from './pages/SignIn';
 import DietPlan from './pages/DietPlan';
 import Cart from './pages/Cart';
-import { getUser} from "./data/userPass";
+import { getUser } from "./data/userPass";
 import LoginAlert from './fragments/LoginAlert'; 
 
 function App() {
@@ -17,7 +17,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
   const [showLoginAlert, setShowLoginAlert] = useState(false);
   
-
   const loginUser = (username) => {
     setUsername(username);
     localStorage.setItem('isLoggedIn', 'true');
@@ -50,6 +49,117 @@ function App() {
     localStorage.setItem('specials', JSON.stringify(specials));
   }, []);
 
+  const dietPlans = {
+    'weight loss': `
+      Day 1:
+      - Breakfast: Scrambled eggs with spinach
+      - Lunch: Grilled chicken salad
+      - Dinner: Baked salmon with steamed vegetables
+      
+      Day 2:
+      - Breakfast: Oatmeal with berries
+      - Lunch: Quinoa and black bean salad
+      - Dinner: Turkey chili with avocado
+      
+      Day 3:
+      - Breakfast: Greek yogurt with mixed fruits
+      - Lunch: Lentil soup with whole grain roll
+      - Dinner: Grilled chicken breast with roasted sweet potatoes
+      
+      Day 4:
+      - Breakfast: Whole grain toast with avocado
+      - Lunch: Vegetable stir-fry with tofu
+      - Dinner: Grilled shrimp with quinoa and asparagus
+      
+      Day 5:
+      - Breakfast: Cottage cheese with pineapple
+      - Lunch: Chickpea salad with cucumber, tomato, and feta cheese
+      - Dinner: Baked cod with quinoa pilaf
+      
+      Day 6:
+      - Breakfast: Smoothie with spinach, banana, and protein powder
+      - Lunch: Mixed greens salad with grilled chicken
+      - Dinner: Stir-fried tofu with mixed vegetables
+      
+      Day 7:
+      - Breakfast: Poached eggs on whole grain toast
+      - Lunch: Greek salad with grilled shrimp
+      - Dinner: Baked chicken breast with roasted vegetables
+    `,
+    'muscle gain': `
+      Day 1:
+      - Breakfast: Protein pancakes with bananas
+      - Lunch: Grilled chicken breast with sweet potatoes
+      - Dinner: Beef stir-fry with brown rice
+      
+      Day 2:
+      - Breakfast: Egg white omelette with spinach and feta cheese
+      - Lunch: Turkey sandwich on whole grain bread
+      - Dinner: Baked cod with quinoa and broccoli
+      
+      Day 3:
+      - Breakfast: Protein smoothie with oats and banana
+      - Lunch: Lean beef burger with whole grain bun
+      - Dinner: Grilled salmon with sweet potato fries
+      
+      Day 4:
+      - Breakfast: Greek yogurt with honey and mixed berries
+      - Lunch: Grilled turkey breast with quinoa salad
+      - Dinner: Stir-fried tofu with brown rice
+      
+      Day 5:
+      - Breakfast: Cottage cheese with berries
+      - Lunch: Grilled chicken wrap with veggies
+      - Dinner: Baked cod with steamed vegetables
+      
+      Day 6:
+      - Breakfast: Protein oatmeal with almond butter
+      - Lunch: Turkey and avocado sandwich on whole grain bread
+      - Dinner: Beef kebabs with grilled vegetables
+      
+      Day 7:
+      - Breakfast: Scrambled eggs with smoked salmon
+      - Lunch: Chicken and quinoa salad with avocado
+      - Dinner: Grilled steak with baked potatoes
+    `,
+    'overall health improvement': `
+      Day 1:
+      - Breakfast: Overnight oats with chia seeds and mixed berries
+      - Lunch: Quinoa salad with mixed greens and grilled veggies
+      - Dinner: Baked chicken breast with roasted sweet potatoes and broccoli
+      
+      Day 2:
+      - Breakfast: Whole grain toast with avocado and poached eggs
+      - Lunch: Lentil soup with whole grain roll
+      - Dinner: Grilled tofu with brown rice and steamed vegetables
+      
+      Day 3:
+      - Breakfast: Smoothie with spinach, banana, almond milk, and protein powder
+      - Lunch: Chickpea salad with cucumber, tomato, and feta cheese
+      - Dinner: Baked cod with quinoa pilaf and green beans
+      
+      Day 4:
+      - Breakfast: Greek yogurt with granola and mixed fruits
+      - Lunch: Mixed greens salad with grilled shrimp
+      - Dinner: Grilled chicken breast with quinoa salad
+      
+      Day 5:
+      - Breakfast: Whole grain pancakes with fresh fruit
+      - Lunch: Turkey and avocado wrap with veggies
+      - Dinner: Vegetable stir-fry with tofu
+      
+      Day 6:
+      - Breakfast: Chia seed pudding with almond milk and berries
+      - Lunch: Grilled salmon with sweet potato mash
+      - Dinner: Lentil curry with brown rice
+      
+      Day 7:
+      - Breakfast: Poached eggs on whole grain toast with avocado
+      - Lunch: Quinoa and black bean salad with grilled chicken
+      - Dinner: Baked cod with steamed vegetables
+    `,
+  };
+
   return (
     <div className="d-flex flex-column min-vh-100">
       <Router>
@@ -62,7 +172,7 @@ function App() {
               <Route path="/profile" element={<Profile logoutUser={logoutUser} />} />
               <Route path="/specials" element={<Specials isLoggedIn={isLoggedIn} />} />
               <Route path="/signIn" element={<SignIn loginUser={loginUser} />} />
-              <Route path="/dietplan" element={<DietPlan />} />
+              <Route path="/dietplan" element={<DietPlan dietPlans={dietPlans} />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>
           </div>
@@ -75,3 +185,4 @@ function App() {
 }
 
 export default App;
+
