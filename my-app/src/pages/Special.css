@@ -58,3 +58,14 @@
     display: block;
     margin: 10px auto;
 }
+.cart-message {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: inline-block; 
+    margin-left: 10px; 
+    color:#725d4c;
+}
+
+.cart-message.show {
+    opacity: 1;
+}

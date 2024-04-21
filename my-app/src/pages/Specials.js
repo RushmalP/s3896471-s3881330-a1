@@ -2,34 +2,75 @@ import React, { useState, useEffect } from 'react';
 import './Special.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Specials = () => {
+const Specials = ({ isLoggedIn }) => {
     const [specials, setSpecials] = useState([]);
-    
+    const [messages, setMessages] = useState({}); // This holds messages for each item
+    const [showMessage, setShowMessage] = useState(false);
 
     useEffect(() => {
         const loadedSpecials = JSON.parse(localStorage.getItem('specials')) || [];
         setSpecials(loadedSpecials);
-      }, []);
+    }, []);
 
-      const addToCart = (item) => {
-        const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-        // Assuming `item` does not have a unique ID, add one here:
-        const itemWithId = { ...item, id: Date.now() }; // Date.now() is a simple way to get a unique timestamp
-        existingCart.push(itemWithId);
-        localStorage.setItem('cart', JSON.stringify(existingCart));
-      };
+    const addToCart = (special) => {
+        setShowMessage(prevShow => ({ ...prevShow, [special.id]: true }));
+    
+        if (!isLoggedIn) {
+            setMessages(prevMessages => ({
+                ...prevMessages,
+                [special.id]: 'Must Log in to Use Cart'
+            }));
+            setTimeout(() => {
+                setShowMessage(prevShow => ({ ...prevShow, [special.id]: false }));
+            }, 3000);
+        } else {
+            // User is logged in, add the item to cart
+            const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemWithId = { ...special, id: Date.now() }; // Ensure unique ID for cart items
+            existingCart.push(itemWithId);
+            localStorage.setItem('cart', JSON.stringify(existingCart));
+    
+            setMessages(prevMessages => ({
+                ...prevMessages,
+                [special.id]: 'Added to cart'
+            }));
+            setTimeout(() => {
+                setMessages(prevMessages => ({ ...prevMessages, [special.id]: '' }));
+                setShowMessage(prevShow => ({ ...prevShow, [special.id]: false }));
+            }, 3000);
+        }
+    };
       
-      return (
+    useEffect(() => {
+        const timers = {};
+        Object.keys(messages).forEach((id) => {
+            if (messages[id] !== '') {
+                timers[id] = setTimeout(() => {
+                    setMessages(prevMessages => ({
+                        ...prevMessages,
+                        [id]: ''
+                    }));
+                }, 3000);
+            }
+        });
+
+        return () => {
+            Object.keys(timers).forEach(timerId => clearTimeout(timers[timerId]));
+        };
+    }, [messages]);
+
+    return (
         <div className="s-container">
             <h2>Weekly Specials</h2>
             <ul>
-                {specials.map((special, index) => (
-                    <li key={index}>
+                {specials.map((special) => (
+                    <li key={special.id}>
                         <div className="special">
                             <h3>{special.name}</h3>
                             <p>{special.description}</p>
                             <p className="price">${special.price.toFixed(2)}</p>
                             <button onClick={() => addToCart(special)} className="add-to-cart-button">Add to Cart</button>
+                            <span className={`cart-message ${showMessage[special.id] ? 'show' : ''}`}>{messages[special.id]}</span>
                         </div>
                     </li>
                 ))}

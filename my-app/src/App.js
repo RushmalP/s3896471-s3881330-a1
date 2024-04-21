@@ -37,15 +37,15 @@ function App() {
 
   useEffect(() => {
     const specials = [
-      { name: 'Organic Apples', description: 'Half a dozen of juicy organic apples.', price: 3.99 },
-      { name: 'Whole Grain Bread', description: 'Fresh and healthy whole grain bread.', price: 3.49 },
-      { name: 'Greek Yogurt', description: '1 kg of delicious greek yogurt for optimal gut health.', price: 7.99 },
-      { name: 'Organic Strawberries', description: '500 grams of sweet, hand-picked strawberries.', price: 5.99 },
-      { name: 'Cherry Tomatoes', description: '500 grams of ripe cherry tomatoes.', price: 4.49 },
-      { name: 'Avocados', description: '500 grams of nutritious avocados.', price: 4.99 },
-      { name: 'Free-range Eggs', description: 'A dozen of large eggs.', price: 10.49 },
-      { name: 'Mushrooms', description: '500 grams of organically grown mushrooms.', price: 8.99 },
-      { name: 'Organic Oranges', description: 'Half a dozen of fresh oranges rich in vitamin C.', price: 4.99 },
+      { id: 'organic_apples', name: 'Organic Apples', description: 'Half a dozen of juicy organic apples.', price: 3.99 },
+      { id: 'whole_grain_bread', name: 'Whole Grain Bread', description: 'Fresh and healthy whole grain bread.', price: 3.49 },
+      { id: 'greek_yogurt', name: 'Greek Yogurt', description: '1 kg of delicious greek yogurt for optimal gut health.', price: 7.99 },
+      { id: 'organic_strawberries', name: 'Organic Strawberries', description: '500 grams of sweet, hand-picked strawberries.', price: 5.99 },
+      { id: 'cherry_tomatoes', name: 'Cherry Tomatoes', description: '500 grams of ripe cherry tomatoes.', price: 4.49 },
+      { id: 'avocados', name: 'Avocados', description: '500 grams of nutritious avocados.', price: 4.99 },
+      { id: 'free_range_eggs', name: 'Free-range Eggs', description: 'A dozen of large eggs.', price: 10.49 },
+      { id: 'mushrooms', name: 'Mushrooms', description: '500 grams of organically grown mushrooms.', price: 8.99 },
+      { id: 'organic_oranges', name: 'Organic Oranges', description: 'Half a dozen of fresh oranges rich in vitamin C.', price: 4.99 },
     ];
     localStorage.setItem('specials', JSON.stringify(specials));
   }, []);
@@ -60,7 +60,7 @@ function App() {
               <Route path="/" element={<Home username={username} />} />
               <Route path="/login" element={<Login loginUser={loginUser} />} />
               <Route path="/profile" element={<Profile logoutUser={logoutUser} />} />
-              <Route path="/specials" element={<Specials />} />
+              <Route path="/specials" element={<Specials isLoggedIn={isLoggedIn} />} />
               <Route path="/signIn" element={<SignIn loginUser={loginUser} />} />
               <Route path="/dietplan" element={<DietPlan />} />
               <Route path="/cart" element={<Cart />} />
