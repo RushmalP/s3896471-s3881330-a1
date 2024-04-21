@@ -18,7 +18,7 @@ body {
 }
 .logo {
   margin-right: auto; /* Pushes everything else to the right */
-  margin-left: -20px; /* Creates a gap on the left side */
+  margin-left: -20px; 
 }
 
 .logo img {
@@ -42,7 +42,7 @@ body {
   color: #725d4c;
   text-decoration: none;
   font-size: 18px; /* Set to match the left side font size */
-  font-family: "Times New Roman", Times, serif; /* Ensure font family matches */
+  font-family: "Times New Roman", Times, serif; 
 }
 
 .nav-links a:hover {

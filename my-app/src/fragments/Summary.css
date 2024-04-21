@@ -1,0 +1,58 @@
+.summary {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.summary h2 {
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.order-details-title {
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.confirmation-message, .total-paid, .thank-you-message {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+}
+
+.summary ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.summary li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.summary button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.summary button:hover {
+    background-color: #45a049;
+}
