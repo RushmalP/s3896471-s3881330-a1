@@ -81,7 +81,7 @@ import React, { useState, useEffect } from 'react';
             ) : (
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/signin">Sign In</Link>
+                  <Link className="nav-link" to="/signin">Sign Up</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/login">Login</Link>
