@@ -1,23 +1,79 @@
-button {
-    margin-right: 10px;
-    padding: 5px 10px;
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
     background-color: #e5dfd2;
-    color: #725d4c;
+    line-height: 1.6;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+  }
+  
+  .profile-info, .profile-form {
+    padding: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 15px;
     border: none;
-    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 10px;
+    background-color: #5D93E1;
+    color: white;
+    transition: background-color 0.3s;
   }
   
   button:hover {
-    background-color: #725d4c;
-    color: #ffffff;
+    background-color: #4E7CAC;
   }
   
-  p {
-    margin-bottom: 5px;
+  button.cancel {
+    background-color: #f44336;
   }
   
-  /* Style for the message */
-  p.message {
-    color: green; /* Visual cue for successful operations */
+  button.cancel:hover {
+    background-color: #d32f2f;
+  }
+  
+  .message {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #4CAF50;
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      padding: 10px;
+    }
   }
   
