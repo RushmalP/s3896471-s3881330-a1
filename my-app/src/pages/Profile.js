@@ -54,24 +54,24 @@ function Profile({ logoutUser }) {
   };
 
   const renderEditView = () => (
-    <form onSubmit={handleEdit} className="profile-form">
+    <form onSubmit={handleEdit} className="profile-edit-form">
       <label htmlFor="name">Name</label>
       <input id="name" type="text" name="name" placeholder="Name" value={userDetails.name || ''} onChange={handleChange} />
       
       <label htmlFor="email">Email</label>
       <input id="email" type="email" name="email" placeholder="Email" value={userDetails.email || ''} onChange={handleChange} />
       
-      <label htmlFor="password">New Password (optional)</label>
+      <label htmlFor="password">New Password (leave blank to keep same password)</label>
       <input id="password" type="password" placeholder="New Password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
       
       <label htmlFor="confirm-password">Confirm New Password</label>
       <input id="confirm-password" type="password" placeholder="Confirm New Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
       
-      <div className="buttons">
-        <button type="submit" className="save">Save Changes</button>
-        <button type="button" onClick={exitEditMode} className="cancel">Cancel</button>
+      <div className="profile-buttons">
+        <button type="submit" className="profile-save">Save Changes</button>
+        <button type="button" onClick={exitEditMode} className="profile-cancel">Cancel</button>
       </div>
-      {message && <p className="message">{message}</p>}
+      {message && <p className="profile-message">{message}</p>}
     </form>
   );
 
@@ -80,16 +80,16 @@ function Profile({ logoutUser }) {
       <p><strong>Name:</strong> {userDetails.name}</p>
       <p><strong>Email:</strong> {userDetails.email}</p>
       <p><strong>Date of Joining:</strong> {userDetails.joiningDate}</p>
-      <div className="buttons">
-        <button onClick={enterEditMode}>Edit</button>
-        <button onClick={handleDelete}>Delete Profile</button>
+      <div className="profile-buttons">
+        <button onClick={enterEditMode} className="profile-edit">Edit</button>
+        <button onClick={handleDelete} className="profile-delete">Delete Profile</button>
       </div>
-      {message && <p className="message">{message}</p>}
+      {message && <p className="profile-message">{message}</p>}
     </div>
   );
 
   return (
-    <main className={editing ? "editing" : "viewing"}>
+    <main className={editing ? "profile-editing" : "profile-viewing"}>
       <h1>{editing ? "Edit Profile" : "Profile"}</h1>
       {editing ? renderEditView() : renderDefaultView()}
     </main>

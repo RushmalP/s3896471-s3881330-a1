@@ -54,15 +54,6 @@
 }
 
 .carousel-control.right {
-    right: -9px; /* Adjust the right position to bring the arrow into view */
+    right: 1px; /* Adjust the right position to bring the arrow into view */
 }
 
-
-/* Responsive adjustments might be necessary for smaller screens */
-@media (max-width: 768px) {
-    .carousel-control.left,
-    .carousel-control.right {
-        left: 10px; /* Adjust for smaller screens */
-        right: 10px; /* Adjust for smaller screens */
-    }
-}
