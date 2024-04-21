@@ -47,16 +47,16 @@ const SignIn = ({ loginUser }) => {
         setError('');
     };
 
-    return (
-        <div className="signIn-container">
-            <div className="form-box">
+      return (
+              <div className="centered-container">
+              <div className="signIn-container">
                 <h1>Sign in</h1>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="name" placeholder="Name" value={userDetails.name} onChange={handleChange} />
                     <input type="email" name="email" placeholder="Email" value={userDetails.email} onChange={handleChange} />
                     <input type="password" name="password" placeholder="Password" value={userDetails.password} onChange={handleChange} />
                     <input type="password" name="confirmPassword" placeholder="Confirm Password" value={userDetails.confirmPassword} onChange={handleChange} />
-                    <button type="submit">Sign Up</button>
+                    <button type="submit" className="sign-in-button">Sign Up</button>
                 </form>
                 {error && <p className="error-message">{error}</p>}
             </div>
