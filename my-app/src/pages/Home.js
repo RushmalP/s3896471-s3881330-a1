@@ -15,10 +15,10 @@ function Home() {
       </section>
       <section className="info-boxes">
       <div className="info-box">
-          <h2>Nutritional Advice</h2>
-          <p>Learn about balanced diets, the importance of nutrients, and how to make informed choices for your health and well-being.</p>
+          <h2>Organic Foods</h2>
+          <p>Discover the benefits of organic foods and how they contribute to a healthier lifestyle and a sustainable environment.</p>
         </div>
-        <div className="info-box">
+      <div className="info-box">
           <h2>Nutritional Advice</h2>
           <p>Learn about balanced diets, the importance of nutrients, and how to make informed choices for your health and well-being.</p>
         </div>
