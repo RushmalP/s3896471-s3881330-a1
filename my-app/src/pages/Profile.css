@@ -1,18 +1,19 @@
 .profile-viewing, .profile-editing {
-    max-width: 800px;
-    margin: 30px auto;
+    width: 650px;
+    height: 570px;
+    margin: 5px auto;
     background: #fff;
-    padding: 20px;
+    padding: 12px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   .profile-viewing h1, .profile-editing h1 {
-    font-size: 26px;
+    font-size: 25px;
     color: #444;
     text-align: center;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
     border-bottom: 1px solid #eaeaea;
   }
   
@@ -20,11 +21,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 40px;
   }
   
   .profile-info label, .profile-edit-form label {
     width: 90%;
-    margin-top: 10px;
     color: #555;
     font-weight: bold;
   }
