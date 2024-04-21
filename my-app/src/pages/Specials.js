@@ -18,7 +18,7 @@ const Specials = ({ isLoggedIn }) => {
         if (!isLoggedIn) {
             setMessages(prevMessages => ({
                 ...prevMessages,
-                [special.id]: 'Must Log in to Use Cart'
+                [special.id]: 'Must log in to use Cart'
             }));
             setTimeout(() => {
                 setShowMessage(prevShow => ({ ...prevShow, [special.id]: false }));
@@ -32,7 +32,7 @@ const Specials = ({ isLoggedIn }) => {
     
             setMessages(prevMessages => ({
                 ...prevMessages,
-                [special.id]: 'Added to cart'
+                [special.id]: 'Item successfully added to cart'
             }));
             setTimeout(() => {
                 setMessages(prevMessages => ({ ...prevMessages, [special.id]: '' }));
