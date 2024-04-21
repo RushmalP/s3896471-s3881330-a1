@@ -9,6 +9,8 @@ function Profile({ logoutUser }) {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [error, setError] = useState('');  
+  const [showModal, setShowModal] = useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,33 +26,55 @@ function Profile({ logoutUser }) {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    if (newPassword !== confirmPassword) {
-      setMessage("Passwords do not match!");
+    if (!userDetails.name || !userDetails.email || (newPassword && !confirmPassword)) {
+      setError('All fields are required when making changes.');
       return;
     }
+
+    if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(userDetails.email)) {
+      setError('Invalid email format');
+      return;
+    }
+
+    if (newPassword && !/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}/.test(newPassword)) {
+      setError('Password must be strong: At least 8 characters, including a number, uppercase, lowercase, and special character');
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
     const updatedDetails = newPassword ? { ...userDetails, password: newPassword } : userDetails;
     localStorage.setItem('userDetails', JSON.stringify(updatedDetails));
     setMessage('Profile updated successfully!');
+    setError('');
     setEditing(false);
   };
 
   const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete your profile?")) {
-      localStorage.removeItem('userDetails');
-      localStorage.removeItem('isLoggedIn');
-      alert("Profile Deleted");
-      logoutUser();
-      navigate('/');
-    }
+    setShowModal(true); 
+  };
+
+  const confirmDelete = () => {
+    localStorage.removeItem('userDetails');
+    localStorage.removeItem('isLoggedIn');
+    alert("Profile Deleted"); 
+    logoutUser();
+    navigate('/');
+    setShowModal(false); 
   };
 
   const enterEditMode = () => {
     setEditing(true);
+    setError('');
   };
 
   const exitEditMode = () => {
     setEditing(false);
     setUserDetails(JSON.parse(localStorage.getItem('userDetails')));
+    setError('');
   };
 
   const renderEditView = () => (
@@ -66,6 +90,8 @@ function Profile({ logoutUser }) {
       
       <label htmlFor="confirm-password">Confirm New Password</label>
       <input id="confirm-password" type="password" placeholder="Confirm New Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+      
+      {error && <p className="profile-error">{error}</p>}
       
       <div className="profile-buttons">
         <button type="submit" className="profile-save">Save Changes</button>
@@ -88,10 +114,23 @@ function Profile({ logoutUser }) {
     </div>
   );
 
+  const renderModal = () => (
+    showModal && (
+      <div className="modal">
+        <div className="modal-content">
+          <p>Are you sure you want to delete your profile?</p>
+          <button onClick={confirmDelete}>Yes, Delete it</button>
+          <button onClick={() => setShowModal(false)}>Cancel</button>
+        </div>
+      </div>
+    )
+  );
+
   return (
     <main className={editing ? "profile-editing" : "profile-viewing"}>
       <h1>{editing ? "Edit Profile" : "Profile"}</h1>
       {editing ? renderEditView() : renderDefaultView()}
+      {renderModal()}
     </main>
   );
 }
