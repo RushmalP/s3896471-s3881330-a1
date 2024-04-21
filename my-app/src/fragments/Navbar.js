@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import LogoutModal from '../fragments/LogoutAlert';
+import LogoutModel from '../fragments/LogoutAlert';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css';
 
 function Navbar({ logoutUser, isLoggedIn }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [showLogoutModel, setShowLogoutModel] = useState(false);
 
   const handleLogout = () => {
     logoutUser();
     console.log("Logout clicked");
-    setShowLogoutModal(true);
+    setShowLogoutModel(true);
   };
 
-  const handleCloseModal = () => {
-    setShowLogoutModal(false);
+  const handleCloseModel = () => {
+    setShowLogoutModel(false);
     navigate('/');
   };
 
@@ -91,7 +91,7 @@ function Navbar({ logoutUser, isLoggedIn }) {
           </div>
         </div>
       </nav>
-      <LogoutModal show={showLogoutModal} onClose={handleCloseModal} />
+      <LogoutModel show={showLogoutModel} onClose={handleCloseModel} />
     </>
   );
 }
